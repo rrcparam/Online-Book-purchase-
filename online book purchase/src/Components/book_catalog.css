@@ -1,0 +1,66 @@
+section {
+  padding: 1.5rem;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+}
+
+/* Title */
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  color: #222222;
+  text-align: center;
+}
+
+/* Grid layout for books */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Individual book card */
+.book-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #dddddd;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Book title */
+.book-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #1e90ff;
+}
+
+/* Author and price */
+.book-card p {
+  margin: 0.25rem 0;
+  color: #444444;
+}
+
+/* Buy button */
+.book-card button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #1e90ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Button hover */
+.book-card button:hover {
+  background-color: #187bcd;
+}

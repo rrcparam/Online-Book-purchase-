@@ -1,3 +1,4 @@
+book_catalog
 import BookList from "./Components/book_catalog.tsx";
 
 export default function App() {
@@ -8,3 +9,13 @@ export default function App() {
   );
 }
 
+import Header from "./Components/Header";
+
+export default function App() {
+  return (
+    <>
+      <Header />
+    </>
+  );
+}
+ main

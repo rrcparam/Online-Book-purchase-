@@ -1,0 +1,22 @@
+.wishlist {
+  padding: 2rem;
+}
+
+.wishlist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.wishlist li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.wishlist button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+}

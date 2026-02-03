@@ -19,3 +19,9 @@ The application is designed to be expanded in future sprints to support features
 For Sprint 1, Our  focus is on setting up the project structure using React and TypeScript and 
 creating a good BookCatalog component that renders a list of books , 
 and integrating this component into the main application layout with a consistent style guide.
+<<<<<<< HEAD
+
+# Complete sprint 1 
+Karmjeet focus on book catalog components
+ Paramdeep focus on header and footer components.
+ ## For sprint 2 we will gonna make our work by making things more attractive according to requirenments of sprint 2.

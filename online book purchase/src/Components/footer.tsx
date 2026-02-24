@@ -31,7 +31,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 Book Store App | Created by Team 3</p>
+        <p>© 2026 Book Store App | Created by Team Logic masters</p>
       </div>
     </footer>
   );

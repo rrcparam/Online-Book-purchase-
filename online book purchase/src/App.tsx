@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Footer from "./Components/footer";
 import Header from "./Components/Header";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog/Catalog";
@@ -31,7 +31,9 @@ export default function App() {
           }
         />
       </Routes>
+       <Footer />
     </BrowserRouter>
+    
   );
 }
 

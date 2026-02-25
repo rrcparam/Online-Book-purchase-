@@ -18,6 +18,21 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.footer {
+  background: linear-gradient(90deg, #06505e, #083f48);
+  padding: 60px 20px 30px;
+  margin-top: 80px;
+  color: #d6dbe1;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

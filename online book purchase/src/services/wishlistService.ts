@@ -1,25 +1,20 @@
 import type { Book } from "../types";
+import { wishlistRepository } from "../repositories/wishlistRepository";
 
-let wishlist: Book[] = [];
-
-function getWishlist() {
-  return wishlist;
+function getWishlist(): Book[] {
+  return wishlistRepository.getAll();
 }
 
-function addToWishlist(book: Book) {
-  const alreadyAdded = wishlist.find((b) => b.id === book.id);
-
-  if (!alreadyAdded) {
-    wishlist.push(book);
-  }
+function addToWishlist(book: Book): void {
+  wishlistRepository.add(book);
 }
 
-function removeFromWishlist(id: number) {
-  wishlist = wishlist.filter((b) => b.id !== id);
+function removeFromWishlist(id: number): void {
+  wishlistRepository.remove(id);
 }
 
 export const wishlistService = {
   getWishlist,
   addToWishlist,
-  removeFromWishlist
+  removeFromWishlist,
 };

@@ -32,3 +32,11 @@
   border: none;
   border-radius: 6px;
 }
+
+.book-card img {
+  width: 130px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}

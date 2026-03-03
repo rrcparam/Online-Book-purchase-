@@ -1,20 +1,21 @@
 import type { Book } from "../types";
-import { wishlistRepository } from "../repositories/wishlistRepository";
+import  { WishlistRepository } from "../repositories/wishlistRepository";
 
-function getWishlist(): Book[] {
-  return wishlistRepository.getAll();
-}
+export const WishlistService = {
+  getWishlist(): Book[] {
+    return WishlistRepository.getAll();
+  },
 
-function addToWishlist(book: Book): void {
-  wishlistRepository.add(book);
-}
+  addToWishlist(book: Book): void {
+    const exists = WishlistRepository.getAll().some((b) => b.id === book.id);
+    if (!exists) WishlistRepository.add(book);
+  },
 
-function removeFromWishlist(id: number): void {
-  wishlistRepository.remove(id);
-}
+  removeFromWishlist(id: number): void {
+    WishlistRepository.remove(id);
+  },
 
-export const wishlistService = {
-  getWishlist,
-  addToWishlist,
-  removeFromWishlist,
+  isInWishlist(id: number): boolean {
+    return WishlistRepository.getAll().some((b) => b.id === id);
+  },
 };

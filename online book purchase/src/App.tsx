@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Footer from "./Components/footer";
 import Header from "./Components/Header";
 import Home from "./pages/Home";
-import "./App.css";
 import Wishlist from "./pages/Wishlist/Wishlist";
+
+import "./App.css";
 
 export default function App() {
   return (
@@ -11,11 +14,10 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
 
-     
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,29 +1,11 @@
-import type { Book } from "../../types"; 
 import { useBooks } from "../../hooks/useBooks";
+import { useWishlist } from "../../hooks/useWishlist";
 import "./Catalog.css";
 
-type CatalogProps = {
-  wishlist: Book[];
-  setWishlist: React.Dispatch<React.SetStateAction<Book[]>>;
-};
 
-/**
- 
- * Catalog is presentation-only.
- 
- */
-export default function Catalog({ wishlist, setWishlist }: CatalogProps) {
+export default function Catalog() {
   const { books, search, setSearch } = useBooks();
-
-  function addBook(book: Book) {
-    if (!wishlist.find((b) => b.id === book.id)) {
-      setWishlist([...wishlist, book]);
-    }
-  }
-
-  function removeBook(id: number) {
-    setWishlist(wishlist.filter((b) => b.id !== id));
-  }
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   return (
     <section className="catalog">
@@ -39,7 +21,7 @@ export default function Catalog({ wishlist, setWishlist }: CatalogProps) {
 
       <div className="book-grid">
         {books.map((book) => {
-          const inWishlist = wishlist.some((b) => b.id === book.id);
+          const inWishlist = isInWishlist(book.id);
 
           return (
             <div className="book-card" key={book.id}>
@@ -57,9 +39,9 @@ export default function Catalog({ wishlist, setWishlist }: CatalogProps) {
               <p>${book.price}</p>
 
               {!inWishlist ? (
-                <button onClick={() => addBook(book)}>Add to Wishlist</button>
+                <button onClick={() => addToWishlist(book)}>Add to Wishlist</button>
               ) : (
-                <button onClick={() => removeBook(book.id)}>Remove</button>
+                <button onClick={() => removeFromWishlist(book.id)}>Remove</button>
               )}
             </div>
           );

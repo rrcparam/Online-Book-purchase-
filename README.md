@@ -35,3 +35,19 @@ In Sprint 2, we worked on turning the project into a multi-page application. We 
 ## Work Breakdown  
 - **Karamjeet Kaur:** Book Catalog page, Wishlist integration, search feature, and book images.  
 - **Paramdeep Singh:** Header, navigation, Home page layout, and overall styling support.
+
+## Sprint 3 
+In Sprint 3, our main goal was to refactor the front-end architecture of the project. Instead of adding new features, we focused on improving how our code is organized.
+
+We applied the hook–service–repository pattern to make our application more structured, reusable, and easier to maintain.
+
+This sprint was about making the project better, not bigger.
+
+## Parmdeep Singh
+Created useBooks.ts to manage book data and search logic.
+Implemented BookService.ts to handle business logic for books.Created BookRepository.ts to manage book test data and refactored the Catalog page to use the hook instead of handling logic directly inside the component , ensured book data was properly connected through the architecture layers.
+## Karmjeet Kaur
+Created useWishlist.ts to manage wishlist state using a custom hook.
+Moved the add and remove logic into wishlistService.ts so that business logic is separated from the UI.
+Also, created wishlistRepository.ts to handle test data and simulate CRUD operations and  refactored the Wishlist page to remove prop drilling and use the custom hook instead.
+Documented  architecture decisions inside the architecture document.

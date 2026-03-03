@@ -154,3 +154,14 @@ This style guide explains how the design and layout are handled in Sprint 2. The
 - Shared state for the wishlist is managed in `App.tsx` and passed to pages as props.  
 - All book data is still static and stored locally in the Catalog component.  
 - No backend or database is connected in this sprint.
+## Sprint 3 
+- n Sprint 3, we did not change the overall design of the application.
+Our focus was mainly on improving the internal architecture (hooks, services, repositories) while keeping the UI consistent.
+
+* Components now focus only on UI.
+
+* Business logic was moved to service files.
+
+* Shared state is handled using custom hooks.
+
+* Data is accessed through repository files.

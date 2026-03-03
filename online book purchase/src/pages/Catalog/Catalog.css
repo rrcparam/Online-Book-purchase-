@@ -98,15 +98,3 @@
   transition: transform 0.05s ease-in-out, opacity 0.15s ease-in-out;
 }
 
-.book-card button:hover {
-  opacity: 0.92;
-}
-
-.book-card button:active {
-  transform: translateY(1px);
-}
-
-.book-card button:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
+import { useWishlist } from "../hooks/useWishlist";
 
-type HeaderProps = {
-  wishlistCount: number;
-};
 
-export default function Header({ wishlistCount }: HeaderProps) {
+export default function Header() {
+  const { wishlist } = useWishlist();
+
   return (
     <header>
       <h1>Online Book Purchaser</h1>
@@ -13,7 +13,7 @@ export default function Header({ wishlistCount }: HeaderProps) {
         <Link to="/">Home</Link>
         <Link to="/catalog">Catalog</Link>
         <Link to="/wishlist">
-          Wishlist ({wishlistCount})
+          Wishlist ({wishlist.length})
         </Link>
       </nav>
     </header>

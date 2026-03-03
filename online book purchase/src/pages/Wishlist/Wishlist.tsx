@@ -1,39 +1,26 @@
-import type { Book } from "../../types";
+import { useWishlist } from "../../hooks/useWishlist";
 import "./Wishlist.css";
 
-type WishlistProps = {
-  wishlist: Book[];
-  setWishlist: React.Dispatch<React.SetStateAction<Book[]>>;
-};
-
-export default function Wishlist({
-  wishlist,
-  setWishlist,
-}: WishlistProps) {
-  function removeBook(id: number) {
-    setWishlist(wishlist.filter((b) => b.id !== id));
-  }
+export default function Wishlist() {
+  const { wishlist, removeFromWishlist } = useWishlist();
 
   return (
     <section className="wishlist">
       <h2>Wishlist</h2>
 
-      {wishlist.length === 0 && (
-        <p>No books in wishlist.</p>
-      )}
+      {wishlist.length === 0 && <p>No books in wishlist.</p>}
 
-      <ul>
-        {wishlist.map((book) => (
-          <li key={book.id}>
-            {book.title} - ${book.price}
-            <button
-              onClick={() => removeBook(book.id)}
-            >
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
+      {wishlist.map((book) => (
+        <div key={book.id} className="wishlist-item">
+          <img src={book.image} alt={book.title} />
+          <div>
+            <h3>{book.title}</h3>
+            <p>{book.author}</p>
+            <p>${book.price}</p>
+            <button onClick={() => removeFromWishlist(book.id)}>Remove</button>
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

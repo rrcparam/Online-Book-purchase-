@@ -1,21 +1,24 @@
-import type { Book } from "../types";
-import  { WishlistRepository } from "../repositories/wishlistRepository";
+const API = "http://localhost:3001/wishlist";
 
-export const WishlistService = {
-  getWishlist(): Book[] {
-    return WishlistRepository.getAll();
+export const wishlistService = {
+  async getWishlist() {
+    const res = await fetch(API);
+    return res.json();
   },
 
-  addToWishlist(book: Book): void {
-    const exists = WishlistRepository.getAll().some((b) => b.id === book.id);
-    if (!exists) WishlistRepository.add(book);
+  async addToWishlist(book: any) {
+    await fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(book),
+    });
   },
 
-  removeFromWishlist(id: number): void {
-    WishlistRepository.remove(id);
-  },
-
-  isInWishlist(id: number): boolean {
-    return WishlistRepository.getAll().some((b) => b.id === id);
+  async removeFromWishlist(id: number) {
+    await fetch(`${API}/${id}`, {
+      method: "DELETE",
+    });
   },
 };

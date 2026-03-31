@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Book {
@@ -12,4 +13,12 @@ model Book {
   author String
   price  Float
   image  String
+
+  wishlists Wishlist[]
+}
+
+model Wishlist {
+  id     Int  @id @default(autoincrement())
+  bookId Int
+  book   Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bookRoutes from "./routes/bookRoutes";
-
+import wishlistRoutes from "./routes/wishlistRoutes"
 const app = express();
 
 app.use(express.json());
@@ -17,5 +17,6 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/books", bookRoutes);
+app.use("/wishlist", wishlistRoutes)
 
 export default app;

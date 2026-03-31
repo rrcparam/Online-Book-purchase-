@@ -1,9 +1,9 @@
 import { useBooks } from "../../hooks/useBooks";
 import "./Catalog.css";
-
+import { useWishlist } from "../../hooks/useWishlist";
 export default function Catalog() {
   const { books, search, setSearch } = useBooks();
-
+  useWishlist();
   return (
     <section className="catalog">
       <h2>Book Catalog</h2>

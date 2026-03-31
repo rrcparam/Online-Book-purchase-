@@ -1,21 +1,24 @@
-import type { Book } from "../types";
+const API = "http://localhost:5000/wishlist";
 
-let wishlist: Book[] = [];
-
-export const WishlistRepository = {
-  getAll(): Book[] {
-    return wishlist;
+export const wishlistRepository = {
+  async getAll() {
+    const res = await fetch(API);
+    return res.json();
   },
 
-  add(book: Book): void {
-    wishlist.push(book);
+  async add(bookId: number) {
+    await fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ bookId }),
+    });
   },
 
-  remove(id: number): void {
-    wishlist = wishlist.filter((b) => b.id !== id);
-  },
-
-  clear(): void {
-    wishlist = [];
+  async remove(id: number) {
+    await fetch(`${API}/${id}`, {
+      method: "DELETE",
+    });
   },
 };

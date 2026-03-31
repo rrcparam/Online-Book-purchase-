@@ -51,3 +51,28 @@ Created useWishlist.ts to manage wishlist state using a custom hook.
 Moved the add and remove logic into wishlistService.ts so that business logic is separated from the UI.
 Also, created wishlistRepository.ts to handle test data and simulate CRUD operations and  refactored the Wishlist page to remove prop drilling and use the custom hook instead.
 Documented  architecture decisions inside the architecture document.
+## Sprint 4 
+In this sprint, we focused on connecting the frontend with a backend server and database.
+
+🔹 Backend Work
+Created Express backend using TypeScript
+Added REST API routes for books and wishlist
+Implemented controller and service structure
+Configured Prisma ORM with PostgreSQL database
+🔹 Frontend Integration
+Updated frontend services to call backend APIs
+Replaced static data with API data
+Connected wishlist functionality with backend
+🔹 Testing
+Tested API endpoints using Postman
+Verified data is saved and retrieved correctly
+Confirmed frontend is communicating with backend
+
+## Karmjeet Kaur
+Implemented wishlist backend (routes, controller, service)
+Connected frontend wishlist with backend API
+Tested API and handled integration issues
+## Paramdeep Singh
+Implemented book backend and database setup
+Connected catalog with backend API
+Worked on frontend integration and structure

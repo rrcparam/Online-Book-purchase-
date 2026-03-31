@@ -1,34 +1,27 @@
 import { useEffect, useState } from "react";
-import type { Book } from "../types";
-import { WishlistService } from "../services/wishlistService";
+import { wishlistRepository } from "../repositories/wishlistRepository";
 
-type UseWishlistResult = {
-  wishlist: Book[];
-  addToWishlist: (book: Book) => void;
-  removeFromWishlist: (id: number) => void;
-  isInWishlist: (id: number) => boolean;
-};
+export function useWishlist() {
+  const [wishlist, setWishlist] = useState<any[]>([]);
 
-export function useWishlist(): UseWishlistResult {
-  const [wishlist, setWishlist] = useState<Book[]>([]);
+  async function load() {
+    const data = await wishlistRepository.getAll();
+    setWishlist(data);
+  }
 
   useEffect(() => {
-    setWishlist(WishlistService.getWishlist());
+    load();
   }, []);
 
-  function addToWishlist(book: Book) {
-    WishlistService.addToWishlist(book);
-    setWishlist(WishlistService.getWishlist());
+  async function add(bookId: number) {
+    await wishlistRepository.add(bookId);
+    load();
   }
 
-  function removeFromWishlist(id: number) {
-    WishlistService.removeFromWishlist(id);
-    setWishlist(WishlistService.getWishlist());
+  async function remove(id: number) {
+    await wishlistRepository.remove(id);
+    load();
   }
 
-  function isInWishlist(id: number) {
-    return WishlistService.isInWishlist(id);
-  }
-
-  return { wishlist, addToWishlist, removeFromWishlist, isInWishlist };
+  return { wishlist, add, remove };
 }

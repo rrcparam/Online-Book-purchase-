@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { useWishlist } from "../hooks/useWishlist";
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 export default function Header() {
   const { wishlist } = useWishlist();
@@ -15,6 +21,21 @@ export default function Header() {
         <Link to="/wishlist">
           Wishlist ({wishlist.length})
         </Link>
+
+        {/* Clerk Auth UI */}
+        <SignedOut>
+          <SignInButton mode="modal">
+            <button type="button">Login</button>
+          </SignInButton>
+
+          <SignUpButton mode="modal">
+            <button type="button">Register</button>
+          </SignUpButton>
+        </SignedOut>
+
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </nav>
     </header>
   );

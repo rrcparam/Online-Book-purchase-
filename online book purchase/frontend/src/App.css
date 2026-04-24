@@ -9,35 +9,63 @@
 
 
 header {
-  padding: 30px 16px 18px;
-  background: #0d6d65;   
-  color: white;
+  padding: 28px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0f766e, #115e59);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
+
 
 header h1 {
-  margin: 0 0 12px;
-  font-size: 2.5rem;
-  font-weight: 700;
+  margin: 0 0 18px;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
-/* Navigation */
 .nav-links {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 10px 0;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
-  color: #38bdf8; 
+  color: #e0f2fe;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+.nav-links button {
+  background: #111827;
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
+.nav-links button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.cl-userButton-root {
+  margin-left: 8px;
+}
 
 .footer {
   background: #0d6d65;

@@ -1,15 +1,16 @@
 import { prisma } from "../prisma";
 
 export const wishlistService = {
-  async getAll() {
+  async getAll(userId: string) {
     return prisma.wishlist.findMany({
+      where: { userId },
       include: { book: true },
     });
   },
 
-  async add(bookId: number) {
+  async add(bookId: number, userId: string) {
     return prisma.wishlist.create({
-      data: { bookId },
+      data: { bookId, userId },
     });
   },
 

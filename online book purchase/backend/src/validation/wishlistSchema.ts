@@ -1,5 +1,6 @@
 import { z } from "zod";
 
-export const createWishlistSchema = z.object({
-  bookId: z.number().int().positive(),
+export const wishlistSchema = z.object({
+  bookId: z.number(),
+  userId: z.string(),
 });

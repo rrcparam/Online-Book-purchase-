@@ -6,6 +6,7 @@ import { createBookSchema } from "../validation/bookSchema";
 const router = Router();
 
 router.get("/", bookController.getAll);
+router.get("/mine", bookController.getMine);
 router.get("/:id", bookController.getById);
 router.post("/", validate(createBookSchema), bookController.create);
 

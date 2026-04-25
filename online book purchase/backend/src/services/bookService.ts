@@ -17,11 +17,16 @@ export const bookService = {
       where: { id },
     });
   },
-
+    
   async createBook(data: CreateBookInput) {
     return prisma.book.create({
       data,
     });
   },
+    async getBooksByUser(userId: number) {
+    return prisma.book.findMany({
+      where: { userId },
+    });
+  }
 };
  

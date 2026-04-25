@@ -12,7 +12,56 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
+ .hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../../assets/hero-books.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 900px;
+  color: white;
+}
+
+.hero-content h2 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  font-size: 1.45rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  color: #f3f4f6;
+}
+
+.hero-content button,
+.hero-content a {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-content button:hover,
+.hero-content a:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
 a {
   font-weight: 500;
   color: #646cff;

@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
-import type { Book } from "../types/Book";
-import { bookRepository } from "../repositories/BookRepository";
-import { BookService } from "../services/BookService";
 
 export function useBooks() {
-  const [allBooks, setAllBooks] = useState<Book[]>([]);
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<any[]>([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const loadBooks = async () => {
+    async function fetchBooks() {
       try {
-        const data = await bookRepository.getAllBooks();
-        setAllBooks(data);
-        setBooks(data);
-      } catch (error) {
-        console.error("Failed to load books:", error);
-      }
-    };
+        const res = await fetch("http://localhost:3001/books");
 
-    loadBooks();
+        if (!res.ok) {
+          throw new Error("Failed to fetch books");
+        }
+
+        const data = await res.json();
+        console.log("BOOKS:", data); // DEBUG
+        setBooks(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchBooks();
   }, []);
 
-  useEffect(() => {
-    setBooks(BookService.filterBySearch(allBooks, search));
-  }, [allBooks, search]);
+  const filtered = books.filter((b) =>
+    b.title.toLowerCase().includes(search.toLowerCase()) ||
+    b.author.toLowerCase().includes(search.toLowerCase())
+  );
 
-  return { books, search, setSearch };
+  return { books: filtered, search, setSearch };
 }

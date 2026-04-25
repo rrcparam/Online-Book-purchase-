@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { getAuth } from "@clerk/express";
 import { bookService } from "../services/bookService";
-import { userService } from "../services/userService";
+import { userService } from "../services/userservice";
 
 export const bookController = {
   async getAll(_req: Request, res: Response) {

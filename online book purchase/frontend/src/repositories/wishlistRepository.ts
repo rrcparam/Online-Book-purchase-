@@ -1,24 +1,15 @@
-const API = "http://localhost:5000/wishlist";
+import { wishlistService } from "../services/wishlistService";
 
 export const wishlistRepository = {
-  async getAll() {
-    const res = await fetch(API);
-    return res.json();
+  getAll(userId: string) {
+    return wishlistService.getAll(userId);
   },
 
-  async add(bookId: number) {
-    await fetch(API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ bookId }),
-    });
+  add(bookId: number, userId: string) {
+    return wishlistService.add(bookId, userId);
   },
 
-  async remove(id: number) {
-    await fetch(`${API}/${id}`, {
-      method: "DELETE",
-    });
+  remove(id: number) {
+    return wishlistService.remove(id);
   },
 };

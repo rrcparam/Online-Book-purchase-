@@ -1,22 +1,22 @@
 const API = "http://localhost:3001/wishlist";
 
 export const wishlistService = {
-  async getWishlist() {
-    const res = await fetch(API);
+  async getAll(userId: string) {
+    const res = await fetch(`${API}?userId=${userId}`);
     return res.json();
   },
 
-  async addToWishlist(book: any) {
+  async add(bookId: number, userId: string) {
     await fetch(API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(book),
+      body: JSON.stringify({ bookId, userId }),
     });
   },
 
-  async removeFromWishlist(id: number) {
+  async remove(id: number) {
     await fetch(`${API}/${id}`, {
       method: "DELETE",
     });

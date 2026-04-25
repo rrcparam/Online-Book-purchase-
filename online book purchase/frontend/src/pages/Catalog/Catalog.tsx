@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useBooks } from "../../hooks/useBooks";
-
+import { useWishlist } from "../../hooks/useWishlist";
 import "./Catalog.css";
 
 export default function Catalog() {
   const { books, search, setSearch } = useBooks();
-  
+  const { add } = useWishlist();
+
   return (
     <section className="catalog">
       <div className="catalog-header">
@@ -51,8 +52,16 @@ export default function Catalog() {
 
             <SignedOut>
               <p className="book-note">
-                Login to add books, manage your books, and use wishlist.
+                Login to use wishlist and manage books.
               </p>
+
+              {/* SHOW BUTTON EVEN IF NOT LOGGED (FOR DEMO) */}
+              <button
+                className="book-btn wishlist-btn"
+                onClick={() => alert("Please login to use wishlist")}
+              >
+                Add to Wishlist
+              </button>
             </SignedOut>
 
             <SignedIn>
@@ -68,9 +77,9 @@ export default function Catalog() {
                 <button
                   type="button"
                   className="book-btn wishlist-btn"
-                 
+                  onClick={() => add(book.id)}
                 >
-                  
+                  Add to Wishlist
                 </button>
               </div>
             </SignedIn>
